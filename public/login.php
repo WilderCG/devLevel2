@@ -1,6 +1,6 @@
 <?php
-declare(stric_types = 1);
-require_one__DIR__ . '/../src/datos.php';
+declare(strict_types = 1);
+require_once__DIR__ . '/../src/datos.php';
 if (isset($_POST['usuario'])) {
   $usuario = trim($_POST['usuario'] ?? '');
   $clave = trim($_POST['clave'] ?? '');

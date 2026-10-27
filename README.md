@@ -46,12 +46,13 @@ Solo te queda crear la página a la que llega el usuario tras loguearse, comprob
 
 <?php 
 session_start();
-if (!isset($\_SESSION['usuario'])) {
+if (!isset($_SESSION['usuario'])) {
   header("Location: login.php");
   exit;
 }
 ?>
 <h1>Bienvenido <? htmlspecialchars($_SESSION['usuario']) ?></h1>
+<a href="logout.php">Cerrar sesión</a>
 
 ### 📌 **Paso 5: Cerrar Sesión (** **public/logout.php** **)**
 
@@ -71,3 +72,14 @@ session_destroy();
 header("Location: login.php");
 exit;
 ?>
+
+
+### **🏆 ¡Has completado el ejercicio completo!**
+
+Acabas de construir desde cero todos los componentes de un **sistema de autenticación seguro** listo para el examen:
+
+1. **src/datos.php**: Creación del hash seguro con `password_hash()`.
+2. **public/login.php** **(HTML)**: Formulario `POST` con atributos `name` e inputs de tipo `text` y `password`.
+3. **public/login.php** **(PHP)**: Captura con `trim()`, verificación con `password_verify()`, activación de `$_SESSION` y redirección.
+4. **public/panel.php**: Guard de seguridad con `if (!isset($_SESSION['usuario']))` y sanitización de salida con **htmlspecialchars()**.
+5. **public/logout.php**: Destrucción completa de la sesión y redirección al login.
